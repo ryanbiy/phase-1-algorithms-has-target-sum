@@ -1,5 +1,24 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  //store the differences between the target and array elements
+  const differences = {};
+
+  // Loop through each element in the array
+  for (let i = 0; i < array.length; i++) {
+    // Get the current element
+    const num = array[i];
+
+    // Check if the current element's difference with the target has been found
+    if (differences[num]) {
+      //return true since we found a pair that adds up to the target
+      return true;
+    }
+
+    // Add difference between target and  current element to the differences object
+    differences[target - num] = true;
+  }
+
+  // If we complete the loop without finding a pair, return false
+  return false;
 }
 
 /* 
